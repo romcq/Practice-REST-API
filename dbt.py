@@ -112,6 +112,7 @@ add_price(get_title(u1), get_price(u1), get_price_int(u1), u1)
 add_price(get_title(u2), get_price(u2), get_price_int(u2), u2)
 add_price(get_title(u3), get_price(u3), get_price_int(u3), u3)
 add_price(get_title(u4), get_price(u4), get_price_int(u4), u4)
+add_price(get_title(u4), get_price(u4), get_price_int(u4), u4)
 
 items = session.query(Price).all()
 for item in items:

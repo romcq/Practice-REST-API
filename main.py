@@ -40,3 +40,23 @@ def read_price(price_id: int, db: Session = Depends(get_db)):
     if db_price is None:
         raise HTTPException(status_code=404, detail="Price not found")
     return db_price
+
+
+@app.delete("/prices/{price_id}", response_model=dict)
+def delete_price(price_id: int, db: Session = Depends(get_db)):
+    db_price = crud.get_price(db, price_id=price_id)
+    if db_price is None:
+        raise HTTPException(status_code=404, detail="Price not found")
+    crud.delete_price(db, price_id)
+    return {
+        "status": "ok"            
+}
+
+
+@app.put("/prices/{price_id}", response_model=schemas.Price)
+def update_price(price_id: int, price: schemas.PriceCreate, db: Session = Depends(get_db)):
+    db_price = crud.get_price(db, price_id=price_id)
+    if db_price is None:
+        raise HTTPException(status_code=404, detail="Price not found")
+    crud.update_price(db, price_id, price)
+    return db_price

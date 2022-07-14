@@ -26,8 +26,25 @@ def create_price(db: Session, price: schemas.PriceCreate):
         price=price.price,
         price_int=price.price_int,
         datetime=dt
-    )
+    )   
     db.add(db_price)
     db.commit()
     db.refresh(db_price)
     return db_price
+
+
+def delete_price(db: Session, price_id: int):
+    item = db.query(models.Price).filter(models.Price.id == price_id).delete()
+    db.commit()
+    return 
+
+def update_price(db: Session, price_id: int, price: schemas.PriceCreate):
+    item = db.query(models.Price).filter(models.Price.id == price_id).first()
+    item.name = price.name
+    item.url = price.url
+    item.price = price.price
+    item.price_int = price.price_int
+    db.add(item)
+    db.commit()
+    db.refresh(item)
+    return item
