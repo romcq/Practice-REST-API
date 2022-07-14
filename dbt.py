@@ -50,6 +50,9 @@ u1 = "https://www.toy.ru/catalog/technic/lego_technic_42126_konstruktor_lego_tek
 u2 = "https://www.toy.ru/catalog/technic/lego_technic_42125_konstruktor_lego_tekhnik_ferrari_488_gte_af_corse_51/"
 u3 = "https://www.toy.ru/catalog/printsessy_disney/lego_disney_43197_konstruktor_lego_printsessy_disney_ledyanoy_zamok/"
 u4 = "https://www.toy.ru/catalog/super_geroi/lego_super_heroes_76156_konstruktor_lego_super_geroi_vzlyet_domo/"
+u5 = "https://www.toy.ru/catalog/star_wars_play_sets/mattel_star_wars_hbx33_zvezdnye_voyny_igrushka_plyushevaya_mandalorets_malysh/"
+u6 = "https://www.toy.ru/catalog/star_wars_play_sets/star_wars_bandai_84545_zvezdnye_voyny_yaytso_transformer_dart_veyder/"
+u7 = "https://www.toy.ru/catalog/toys-zheleznye-dorogi/eztec_62130_zheleznaya_doroga_north_pole_express_train_set_22_chasti/"
 
 #--------------------------------------------------------------------------------
 
@@ -113,6 +116,9 @@ add_price(get_title(u2), get_price(u2), get_price_int(u2), u2)
 add_price(get_title(u3), get_price(u3), get_price_int(u3), u3)
 add_price(get_title(u4), get_price(u4), get_price_int(u4), u4)
 add_price(get_title(u4), get_price(u4), get_price_int(u4), u4)
+add_price(get_title(u5), get_price(u5), get_price_int(u5), u5)
+add_price(get_title(u6), get_price(u6), get_price_int(u6), u6)
+add_price(get_title(u7), get_price(u7), get_price_int(u7), u7)
 
 items = session.query(Price).all()
 for item in items:

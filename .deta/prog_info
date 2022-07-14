@@ -1,0 +1,1 @@
+{"id":"934aef48-027f-49e6-9b42-afebfc100ba2","space":26543,"runtime":"python3.9","name":"Practice-REST-API","path":"su3et6","project":"c0koy9ut","account":"144798365827","region":"ap-southeast-1","deps":["fastapi","sqlalchemy"],"envs":null,"public":true,"log_level":"off","cron":""}
