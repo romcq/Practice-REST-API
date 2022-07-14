@@ -19,3 +19,4 @@ class Price(PriceBase):
 
     class Config:
         orm_mode = True
+
