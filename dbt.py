@@ -69,6 +69,7 @@ class Price(Base):
     datetime = Column(DateTime)
     price = Column(String(64))
     price_int = Column(Numeric(10, 2))
+    url = Column(String(64))
 
     def __repr__(self):
         return f"{self.name} | {self.price}"
@@ -78,7 +79,7 @@ Base.metadata.create_all(engine)
 
 session = Session(bind=engine)
 
-def add_price(title, price, price_int):
+def add_price(title, price, price_int, url):
     is_exist = session.query(Price).filter(
         Price.name==title
     ).order_by(Price.datetime.desc()).first()
@@ -89,7 +90,8 @@ def add_price(title, price, price_int):
                 name=title,
                 datetime=datetime.now(),
                 price=price,
-                price_int=price_int
+                price_int=price_int,
+                url=url
             )
         )
         session.commit()
@@ -106,10 +108,10 @@ def add_price(title, price, price_int):
             session.commit()
 
 
-add_price(get_title(u1), get_price(u1), get_price_int(u1))
-add_price(get_title(u2), get_price(u2), get_price_int(u2))
-add_price(get_title(u3), get_price(u3), get_price_int(u3))
-add_price(get_title(u4), get_price(u4), get_price_int(u4))
+add_price(get_title(u1), get_price(u1), get_price_int(u1), u1)
+add_price(get_title(u2), get_price(u2), get_price_int(u2), u2)
+add_price(get_title(u3), get_price(u3), get_price_int(u3), u3)
+add_price(get_title(u4), get_price(u4), get_price_int(u4), u4)
 
 items = session.query(Price).all()
 for item in items:
